@@ -1,10 +1,10 @@
 terraform {
   cloud {
-    organization = "<MY-ORG>"
+    organization = "welstory-terraform-study-org"
     hostname     = "app.terraform.io" # default
 
     workspaces {
-      name = "terraform-aws-github-action"
+      name = "terraform-aws-github-action-1"
     }
   }
   required_providers {
@@ -31,7 +31,7 @@ resource "aws_vpc" "hashicat" {
 
   tags = {
     name        = "${var.prefix}-vpc-${var.region}"
-    environment = "Production"
+    environment = var.environment
   }
 }
 
